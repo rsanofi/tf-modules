@@ -45,7 +45,6 @@ subnets = {
     name              = "loadbalancer"
     address_prefixes  = ["10.0.1.0/24"]
     service_endpoints = ["Microsoft.Sql", "Microsoft.AzureCosmosDB"]
-    pe_enable         = false
     delegation        = []
   },
   subnet2 = {
@@ -53,7 +52,6 @@ subnets = {
     vnet_name         = "pocvnet"
     name              = "proxy"
     address_prefixes  = ["10.0.2.0/24"]
-    pe_enable         = true
     service_endpoints = null
     delegation        = []
   }

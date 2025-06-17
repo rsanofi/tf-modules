@@ -43,7 +43,6 @@ variable "subnets" {
     vnet_key          = string
     vnet_name         = string
     address_prefixes  = list(string)
-    pe_enable         = bool
     service_endpoints = list(string)
     delegation = list(object({
       name = string
