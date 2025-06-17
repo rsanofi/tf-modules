@@ -50,7 +50,7 @@ resource "azurerm_storage_account" "this" {
   account_replication_type  = coalesce(lookup(each.value, "account_kind"), "StorageV2") == "FileStorage" ? "LRS" : split("_", each.value["sku"])[1]
   account_kind              = coalesce(lookup(each.value, "account_kind"), "StorageV2")
   access_tier               = lookup(each.value, "access_tier", null)
-  enable_https_traffic_only = true 
+  https_traffic_only_enabled = true 
 
   min_tls_version          = lookup(each.value, "min_tls_version", "TLS1_2")
   large_file_share_enabled = coalesce(each.value.large_file_share_enabled, false)
