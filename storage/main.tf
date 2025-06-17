@@ -65,7 +65,7 @@ resource "azurerm_storage_account" "this" {
 
  
   dynamic "network_rules" {
-    for_each = lookup(each.value, "network_rules", null) != null ? [merge(local.default_network_rules, lookup(each.value, "network_rules", null))] : [local.default_network_rules]
+    for_each = lookup(each.value, "network_rules", null) != null ? [merge(local.default_network_rules, lookup(each.value, "network_rules", null))] : []
     content {
       bypass                     = network_rules.value.bypass
       default_action             = network_rules.value.default_action
