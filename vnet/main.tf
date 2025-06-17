@@ -39,7 +39,7 @@ resource "azurerm_subnet" "this" {
   name                                           = each.value["name"]
   resource_group_name                            = data.azurerm_resource_group.this.name
   address_prefixes                               = each.value["address_prefixes"]
-  service_endpoints                              = coalesce(lookup(each.value, "pe_enable"), false) == false ? lookup(each.value, "service_endpoints", null) : null
+  service_endpoints                              = lookup(each.value, "service_endpoints", null)
   virtual_network_name                           = each.value.vnet_key != null ? lookup(var.virtual_networks, each.value["vnet_key"])["name"] : each.value["vnet_name"]
 
   dynamic "delegation" {
