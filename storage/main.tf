@@ -44,8 +44,8 @@ locals {
 resource "azurerm_storage_account" "this" {
   for_each                  = var.storage_accounts
   name                      = each.value["name"]
-  resource_group_name       = local.resourcegroup_state_exists == true ? var.resource_group_name : data.azurerm_resource_group.this.0.name
-  location                  = local.resourcegroup_state_exists == true ? lookup(data.terraform_remote_state.resourcegroup.outputs.resource_group_locations_map, var.resource_group_name) : data.azurerm_resource_group.this.0.location
+  resource_group_name       = data.azurerm_resource_group.this.name
+  location                  = data.azurerm_resource_group.this.location
   account_tier              = coalesce(lookup(each.value, "account_kind"), "StorageV2") == "FileStorage" ? "Premium" : split("_", each.value["sku"])[0]
   account_replication_type  = coalesce(lookup(each.value, "account_kind"), "StorageV2") == "FileStorage" ? "LRS" : split("_", each.value["sku"])[1]
   account_kind              = coalesce(lookup(each.value, "account_kind"), "StorageV2")
