@@ -1,8 +1,8 @@
-resource_group_name = "jstart-vmss-layered07142020"
+resource_group_name = "poc-rm"
 
 storage_accounts = {
   sa1 = {
-    name                     = "jstartlayer08202020sa"
+    name                     = "rsafcfisa"
     sku                      = "Standard_LRS"
     account_kind             = null
     access_tier              = null
@@ -16,7 +16,7 @@ storage_accounts = {
 containers = {
   container1 = {
     name                  = "test"
-    storage_account_name  = "jstartlayer08202020sa"
+    storage_account_name  = "rsafcfisa"
     container_access_type = "private"
   }
 }
@@ -24,7 +24,7 @@ containers = {
 blobs = {
   blob1 = {
     name                   = "test"
-    storage_account_name   = "jstartlayer08202020sa"
+    storage_account_name   = "rsafcfisa"
     storage_container_name = "test"
     type                   = "Block"
     size                   = null
@@ -37,14 +37,14 @@ blobs = {
 queues = {
   queue1 = {
     name                 = "test1"
-    storage_account_name = "jstartlayer08202020sa"
+    storage_account_name = "rsafcfisa"
   }
 }
 
 file_shares = {
   share1 = {
     name                 = "share1"
-    storage_account_name = "jstartlayer08202020sa"
+    storage_account_name = "rsafcfisa"
     quota                = "512"
   }
 }
@@ -52,7 +52,7 @@ file_shares = {
 tables = {
   table1 = {
     name                 = "table1"
-    storage_account_name = "jstartlayer08202020sa"
+    storage_account_name = "rsafcfisa"
   }
 }
 

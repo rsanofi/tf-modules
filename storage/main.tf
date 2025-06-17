@@ -57,7 +57,7 @@ resource "azurerm_storage_account" "this" {
 
  
   dynamic "identity" {
-    for_each = coalesce(lookup(each.value, "assign_identity"), false) == false ? [] : list(lookup(each.value, "assign_identity", false))
+    for_each = coalesce(lookup(each.value, "assign_identity"), false) == false ? [] : tolist([lookup(each.value, "assign_identity", false)])
     content {
       type = "SystemAssigned"
     }

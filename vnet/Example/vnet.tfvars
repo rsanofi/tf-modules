@@ -1,4 +1,4 @@
-resource_group_name = "poc"
+resource_group_name = "poc-rm"
 net_location        = null
 
 virtual_networks = {
